@@ -2,9 +2,9 @@ name: Angular CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -22,5 +22,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: ng build --configuration production
+    - run: npm run build-prod
     - run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
